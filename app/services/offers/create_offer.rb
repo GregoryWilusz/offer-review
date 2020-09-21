@@ -1,9 +1,10 @@
 module Offers
   class CreateOffer
-    def call(params)
+    def call(id, params)
       user = User.find(params[:user_id])
 
       Offer.create!(
+        id: id,
         user_id: user.id,
         quantity: params[:quantity]
       )

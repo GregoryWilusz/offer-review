@@ -10,10 +10,10 @@ RSpec.describe 'POST /api/v1/offers' do
     let(:quantity) { 15 }
 
     context 'and the user exists' do
-      it 'is a successful request' do
+      it 'returns created offer' do
         subject
 
-        expect(response).to have_http_status 201
+        expect(response.parsed_body).to match('quantity' => 15, 'user_id' => user_id)
       end
     end
 

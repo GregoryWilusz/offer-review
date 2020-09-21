@@ -5,10 +5,23 @@ module Api
         param! :user_id, String, required: true
         param! :quantity, Integer, required: true
 
-        Offers::CreateOffer.new.call(params)
+        @id = SecureRandom.uuid
+        Offers::CreateOffer.new.call(id, params)
 
-        render json: { success: true }, status: 201
+        render_offer
       end
+
+      private
+
+      def offer
+        Offer.find(id)
+      end
+
+      def render_offer
+        render json: OfferSerializer.new.serialize(offer), status: 201
+      end
+
+      attr_reader :id
     end
   end
 end
