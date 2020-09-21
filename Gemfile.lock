@@ -130,6 +130,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails_param (0.11.0)
     railties (6.0.3.3)
       actionpack (= 6.0.3.3)
       activesupport (= 6.0.3.3)
@@ -230,6 +231,7 @@ DEPENDENCIES
   pg
   puma
   rails
+  rails_param
   rspec-rails
   rubocop
   sass-rails
