@@ -1,12 +1,14 @@
 module Api
   module V1
     class OffersController < ApplicationController
+      before_action :authenticate_user!
+
       def create
-        param! :user_id, String, required: true
+        param! :client_id, String, required: true
         param! :quantity, Integer, required: true
 
         @id = SecureRandom.uuid
-        Offers::CreateOffer.new.call(id, params)
+        Offers::CreateOffer.new.call(id, current_user, params)
 
         render_offer
       end

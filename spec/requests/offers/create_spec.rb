@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe 'POST /api/v1/offers' do
   subject { post '/api/v1/offers', params: params }
 
-  let(:params) { { user_id: user_id, quantity: quantity } }
-  let(:user_id) { create(:user).id }
+  let(:params) { { client_id: client_id, quantity: quantity } }
+  let(:client_id) { create(:client).id }
+  let(:salesman) { create(:salesman) }
 
   context 'when all required params are provided' do
     let(:quantity) { 15 }
@@ -13,7 +14,7 @@ RSpec.describe 'POST /api/v1/offers' do
       it 'returns created offer' do
         subject
 
-        expect(response.parsed_body).to match('quantity' => 15, 'user_id' => user_id)
+        expect(response.parsed_body).to match('quantity' => 15, 'client_id' => client_id)
       end
     end
 

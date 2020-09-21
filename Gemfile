@@ -5,13 +5,15 @@ ruby '2.7.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dotenv-rails'
+gem 'devise'
 gem 'pg'
 gem 'puma'
 gem 'rails'
+gem 'rails_param'
 gem 'sass-rails'
+gem "simple_token_authentication"
 gem 'turbolinks'
 gem 'webpacker'
-gem 'rails_param'
 
 group :test do
   gem 'rspec-rails', require: false
