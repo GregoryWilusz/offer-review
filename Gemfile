@@ -14,6 +14,7 @@ gem 'webpacker'
 
 group :test do
   gem 'rspec-rails', require: false
+  gem 'factory_bot_rails'
 end
 
 group :development, :test do
